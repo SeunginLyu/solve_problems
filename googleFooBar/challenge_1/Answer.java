@@ -6,7 +6,6 @@ public class Answer {
           int char_ascii = (int)(original.charAt(i));
           if (char_ascii >=97 && char_ascii <=122){
             char_ascii = 97 + Math.abs(char_ascii - 122);
-
           }
           decrpyted += (char)char_ascii;
         }
