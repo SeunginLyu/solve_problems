@@ -16,23 +16,25 @@ class Solution:
         new_head = ListNode(0)
         new_head.next = head
         curr = new_head.next
-        if(curr.next):
+        if(curr and curr.next):
             even_start = curr.next
         else:
-            return new_head.text
-        while(curr.next):
-            if(curr.next.next):
-                next = curr.next.next
-                curr.next = next
-                curr = next
+            return new_head.next
+        while(curr):
+            if(curr.next and curr.next.next):
+                nextNode = curr.next.next
+                curr.next.next = nextNode.next
+                curr.next = nextNode
+                curr = curr.next
             else:
                 curr.next = even_start
-                break
-        while(curr.next):
-            if(curr.next.next):
-                next = curr.next.next
-                curr.next = next
-                curr = next
+                curr = even_start
+                break;
+        while(curr):
+            print(curr.val)
+            if(curr.next):
+                nextNode = curr.next
+                curr.next = nextNode
+                curr = curr.next
             else:
-                curr.next = None
                 return new_head.next
